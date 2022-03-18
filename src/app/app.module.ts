@@ -13,7 +13,8 @@ import { CadastroComponent } from './demos/cadastro/cadastro.component';
 import {TextMask ,NgBrazil } from 'ng-brazil';
 import { CustomFormsModule } from 'ng2-validation';
 import { NavegacaoModule } from './navegacao/navegacao.module';
-import { ProdutoDashboardComponent } from './demos/arquitetura-componentes/produto-dashboard/produto-dashboard.component';
+
+
 
 @NgModule({
   
@@ -32,9 +33,7 @@ import { ProdutoDashboardComponent } from './demos/arquitetura-componentes/produ
     NavegacaoModule,
     AppRoutingModule
   ],
-  providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

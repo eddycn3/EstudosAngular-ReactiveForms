@@ -5,14 +5,26 @@ import { ProdutoRoutingModule } from "./produto.route";
 import { ProdutoCardComponent } from "./produto-card/produto-card.component";
 
 import { registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt';
 import { ProdutoCountComponent } from "./produto-card/produto-count.component";
+import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+
+import localePt from '@angular/common/locales/pt';
+import { ProdutoAppComponent } from "./produto.app.component";
+import { ProdutoService } from "./services/produto.service";
+import { ProdutoResolve } from "./services/produto.resolve";
 registerLocaleData(localePt);
 
 
 @NgModule({
-    declarations:[ProdutoDashboardComponent,ProdutoCardComponent,ProdutoCountComponent],
+    declarations:[
+        ProdutoAppComponent,
+        ProdutoDashboardComponent,
+        ProdutoCardComponent,
+        ProdutoCountComponent, 
+        EditarProdutoComponent,
+        ],
     exports:[],
-    imports:[CommonModule, ProdutoRoutingModule]
+    imports:[CommonModule, ProdutoRoutingModule],
+    providers:[ProdutoService,ProdutoResolve]
 })
 export class ProdutoModule{}
