@@ -4,14 +4,17 @@ import { ProdutoDashboardComponent } from "./produto-dashboard/produto-dashboard
 import { ProdutoRoutingModule } from "./produto.route";
 import { ProdutoCardComponent } from "./produto-card/produto-card.component";
 
-import { registerLocaleData } from '@angular/common';
+
 import { ProdutoCountComponent } from "./produto-card/produto-count.component";
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
 
-import localePt from '@angular/common/locales/pt';
+
 import { ProdutoAppComponent } from "./produto.app.component";
 import { ProdutoService } from "./services/produto.service";
 import { ProdutoResolve } from "./services/produto.resolve";
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 registerLocaleData(localePt);
 
 
@@ -24,7 +27,13 @@ registerLocaleData(localePt);
         EditarProdutoComponent,
         ],
     exports:[],
-    imports:[CommonModule, ProdutoRoutingModule],
-    providers:[ProdutoService,ProdutoResolve]
+    imports:[
+        CommonModule, 
+        ProdutoRoutingModule
+    ],
+    providers:[
+        ProdutoService,
+        ProdutoResolve
+    ]
 })
 export class ProdutoModule{}

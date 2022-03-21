@@ -22,6 +22,7 @@ export class CadastroComponent implements OnInit,AfterViewInit {
   cadastroFormGroup : FormGroup;
   usuario: Usuario;
   MASKS = utilsBr.MASKS;
+  mudancasNaoSalvas: boolean;
 
   validationMessages: ValidationMessages;
   displayMessage : DisplayMessage= {};
@@ -67,6 +68,7 @@ export class CadastroComponent implements OnInit,AfterViewInit {
     // pega colecao de observables e aplica para todos os itens da coleção o processamento a cada vez que o evento blur for disparado
     merge(...controlBlurs).subscribe(()=>{
       this.displayMessage = this.genericFormValidation.processarMensagens(this.cadastroFormGroup);
+      this.mudancasNaoSalvas = true;
     });
 
     
@@ -91,6 +93,10 @@ export class CadastroComponent implements OnInit,AfterViewInit {
     if(this.cadastroFormGroup.valid && this.cadastroFormGroup.dirty){
       this.usuario = Object.assign({},this.usuario,this.cadastroFormGroup.value);
       console.log(JSON.stringify(this.usuario)); 
+      this.mudancasNaoSalvas = false;
+    }
+    else{
+     
     }
   }
 

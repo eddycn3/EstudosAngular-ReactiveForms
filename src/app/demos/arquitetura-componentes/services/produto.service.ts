@@ -62,6 +62,10 @@ export class ProdutoService {
       return this.produtos.filter(produto => produto.ativo);
     }
 
+    if(estado === 'inativos'){
+      return this.produtos.filter(produtos => !produtos.ativo);
+    }
+
     return this.produtos;
   }
 }

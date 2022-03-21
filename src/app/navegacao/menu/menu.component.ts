@@ -30,6 +30,18 @@ export class MenuComponent {
       name : 'Produtos',
       exact : false,
       admin : true
+    },
+    {
+      link : '/admin',
+      name : 'Admin',
+      exact : false,
+      admin : true
+    },
+    {
+      link : '/filmes',
+      name : 'Filmes',
+      exact : false,
+      admin : true
     }
   ];
 }

@@ -4,17 +4,29 @@ import { SobreComponent } from './institucional/sobre/sobre.component';
 import { CadastroComponent } from './demos/cadastro/cadastro.component';
 import { NgModule } from '@angular/core';
 import { NotFoundComponent } from './navegacao/not-found/not-found.component';
+import { AuthGuard } from './services/app.guard';
+import { CadastroGuard } from './services/cadastro.guard';
+import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
+
 
 const rootRouterConfig: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: 'home', component: HomeComponent},
     { path: 'sobre', component: SobreComponent },
-    { path: 'cadastro', component: CadastroComponent },
+    { path: 'cadastro', component: CadastroComponent,canDeactivate:[CadastroGuard] },
     {
         path: 'produtos', 
         loadChildren: () => import('./demos/arquitetura-componentes/produto.module')
         .then(m=>m.ProdutoModule) 
     },
+    {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin.module')
+        .then(m => m.AdminModule),
+        canLoad : [AuthGuard],
+        canActivate :[AuthGuard]
+    },
+    {path:'filmes',component: FilmesComponent},
     // '**' Significa uma rota GERAL! 
     // Caso não encontre a rota declarada redirecione para o componente
     {path : '**',component : NotFoundComponent},
@@ -24,7 +36,8 @@ const rootRouterConfig: Routes = [
 @NgModule({
     imports:
     [
-        RouterModule.forRoot(rootRouterConfig, {enableTracing: true})
+        // {enableTracing: true}
+        RouterModule.forRoot(rootRouterConfig)
     ],
     exports:[RouterModule]
 })

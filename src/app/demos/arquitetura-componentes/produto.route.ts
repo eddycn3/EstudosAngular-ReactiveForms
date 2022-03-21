@@ -15,6 +15,11 @@ const produtoRtouterConfig: Routes = [
                 component: ProdutoDashboardComponent,
                 resolve:{
                     produtos : ProdutoResolve
+                },
+                // utilizado para recuperar dados custom que podem serobtidos a partir da rota
+                // this.route.data['teste']
+                data:{
+                    teste: 'OlÁAAAAAA TESTE!'
                 }
             },
             { path: 'editar/:id', component: EditarProdutoComponent }
