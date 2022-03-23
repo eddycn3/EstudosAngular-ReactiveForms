@@ -7,6 +7,7 @@ import { NotFoundComponent } from './navegacao/not-found/not-found.component';
 import { AuthGuard } from './services/app.guard';
 import { CadastroGuard } from './services/cadastro.guard';
 import { FilmesComponent } from './demos/pipes/filmes/filmes.component';
+import { TodoComponent } from './demos/todo-list/todo.component';
 
 
 const rootRouterConfig: Routes = [
@@ -14,6 +15,7 @@ const rootRouterConfig: Routes = [
     { path: 'home', component: HomeComponent},
     { path: 'sobre', component: SobreComponent },
     { path: 'cadastro', component: CadastroComponent,canDeactivate:[CadastroGuard] },
+    { path: 'todo', component: TodoComponent},
     {
         path: 'produtos', 
         loadChildren: () => import('./demos/arquitetura-componentes/produto.module')

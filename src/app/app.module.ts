@@ -22,14 +22,16 @@ import localePt from '@angular/common/locales/pt';
 import { FileSizePipe } from './demos/pipes/filmes/filesize.pipe';
 import { ImageFormaterPipe } from './demos/pipes/filmes/imageformaterpipe.pipe';
 import { Provider } from '@angular/compiler/src/core';
-import { BarDiZonesService } from './demos/bar-di-zones/bar-di-zones.service';
-import { BarDiZonesModule } from './demos/bar-di-zones/bar-di-zone.module';
+import { BarModule } from './demos/bar-di-zones/bar.module';
+import { TodoModule } from './demos/todo-list/todo.module';
+import { BarServices } from './demos/bar-di-zones/bar.service';
+
 registerLocaleData(localePt);
 
 // Coleção de providers
 // pode ser utilizado para organizar varios providers e exportalos na aplicação dependente do app module
 export const BAR_ZONES_DI_PROVIDERS : Provider[] = [
-  BarDiZonesService
+  BarServices
 ];
 
 @NgModule({
@@ -51,7 +53,11 @@ export const BAR_ZONES_DI_PROVIDERS : Provider[] = [
     CustomFormsModule,
     NavegacaoModule,
     AppRoutingModule,
-    BarDiZonesModule
+    BarModule.forRoot({
+      unidadeId: 1000,
+      unidadeToken: 'e5etdr6d7rtd7eyr8deuh6'
+    }),
+    TodoModule
   ],
   providers: [
     AuthGuard,

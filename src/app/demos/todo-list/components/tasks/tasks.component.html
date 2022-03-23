@@ -1,0 +1,6 @@
+<div class="tasks">
+    <!-- '| async' indica ao angular para esperar o callback do observable -->
+    <todo-list [list]="todolist$ | async">
+        Tarefas
+    </todo-list>
+</div>
