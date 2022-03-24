@@ -28,4 +28,8 @@ export class TasksIniciadasComponent implements OnInit,OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  onToggle(event){
+    this.tasksService.toggle(event);
+  }
+
 }

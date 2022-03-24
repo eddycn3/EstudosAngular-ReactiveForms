@@ -23,4 +23,8 @@ export class TasksFinalizadasComponent implements OnInit {
       map(todoList => todoList.filter(task => task.finalizado))
     )      
   }
+  
+  onToggle(event){
+    this.tasksService.toggle(event);
+  }
 }
